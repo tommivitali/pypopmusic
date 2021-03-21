@@ -15,16 +15,16 @@ How do I install it?
 PyPOPMusic is tested under Python 3.8. It contains a modified version of the C effective implementation of the Lin-Kernighan heuristic for solving the traveling salesman problem. 
 
 To build PyPOPMusic, clone the repository:
-```
+```shell
     git clone https://github.com/tommivitali/pypopmusic
     cd pypopmusic
 ```
 Then run
-```
+```shell
     pip install -e .
 ```
 to install all the dependencies required to use PyPOPMusic. Next, run
-```
+```shell
     cd LKH-2.0.9
     make
 ```
