@@ -1,5 +1,0 @@
-ctypes
-numpy
-os
-tempfile
-

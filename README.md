@@ -23,12 +23,7 @@ Then run
 ```shell
     pip install -e .
 ```
-to install all the dependencies required to use PyPOPMusic. Next, run
-```shell
-    cd LKH-2.0.9
-    make
-```
-to build the modified version of the LKH C implementation.
+to install all the dependencies required to use PyPOPMusic, and to build the modified version of the LKH C implementation.
 
 What can I do with it?
 -------
