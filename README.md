@@ -34,9 +34,10 @@ The main entry point of the PyPOPMusic library is the `PyCandidatePOP` class. He
     >>> n_cities = np.random.randint(100, 300)
     >>> pos = np.random.uniform(-0.5, 0.5, size=n_cities * 2).reshape((n_cities, 2))
     >>> instance_popm = PyCandidatePOP()
-    >>> cand_lists = instance_popm(pos)
+    >>> cand_lists, time_spent = instance_popm(pos)
     Lower bound = 1256566.8, Ascent time = 0.23 sec.
     Cand.min = 2, Cand.avg = 5.3, Cand.max = 9
     Preprocessing time = 0.23 sec.
     Total execution time: 0.2389 seconds
 ```
+As you can see above, PyPOPMusic is somewhat chatty and will print various message to the standard output. You can avoid these messages to be printed specifying the `verbose=False` parameter in the constructor.

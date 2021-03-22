@@ -5,12 +5,14 @@
  * This file contains the main function of the program.
  */
 
-void LKH_POPMUSIC(char *parameterFile) 
+double LKH_POPMUSIC(char *parameterFile) 
 {
     double LastTime = GetTime();
 
     ParameterFileName = parameterFile;
     ReadParameters();
+
+    int OldTraceLevel = TraceLevel;
     TraceLevel = 0;
 
     MaxMatrixDimension = 20000;
@@ -20,12 +22,15 @@ void LKH_POPMUSIC(char *parameterFile)
 
     AllocateStructures();
 
-    TraceLevel = 1;
+    TraceLevel = OldTraceLevel;
     CreateCandidateSet();
 
     CandidateWriteToFile();
+
     double TimeSpent = GetTime() - LastTime;
-    printff("Total execution time: %0.4f seconds", TimeSpent);
+    if (TraceLevel >= 1)
+        printff("Total execution time: %0.4f seconds", TimeSpent);
+    return TimeSpent;
 }
 
 int main(int argc, char *argv[])

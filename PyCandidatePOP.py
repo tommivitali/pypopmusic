@@ -13,13 +13,15 @@ class PyCandidatePOP:
                  candidate_file_name="candidate.csv",
                  number_of_solutions=None,
                  max_candidates=None,
-                 original_write_candidate=False):
+                 original_write_candidate=False,
+                 verbose=True):
         self.parameterFileName = parameter_file_name
         self.problemFileName = problem_file_name
         self.candidateFileName = candidate_file_name
         self.numberOfSolutions = number_of_solutions
         self.maxCandidates = max_candidates
         self.originalWriteCandidate = original_write_candidate
+        self.verbose = verbose
 
     def write_parameter_file(self, number_cities):
         with open(self.parameterFileName, "w") as parameter_file:
@@ -35,6 +37,8 @@ class PyCandidatePOP:
                 parameter_file.write(f"MAX_CANDIDATES = {2 * number_cities}\n")
             else:
                 parameter_file.write(f"MAX_CANDIDATES = {self.maxCandidates}\n")
+            if not self.verbose:
+                parameter_file.write(f"TRACE_LEVEL = 0\n")
 
     def write_problem_file(self, positions, precision=100000):
         pos = np.round(positions * precision).astype(int)
@@ -67,7 +71,8 @@ class PyCandidatePOP:
             self.write_problem_file(positions)
 
             LKH_library = CDLL(f"{old_directory}/{self.so_file}")
-            LKH_library.LKH_POPMUSIC(f"{self.parameterFileName}".encode())
+            LKH_library.LKH_POPMUSIC.restype = c_double
+            time_spent = LKH_library.LKH_POPMUSIC(f"{self.parameterFileName}".encode())
 
             if self.originalWriteCandidate:
                 with open(self.candidateFileName, "r") as candidate_file:
@@ -81,4 +86,4 @@ class PyCandidatePOP:
                         candidate[int(line[0])-1] = [int(x)-1 for x in line[1].split(";")[:-1]]
 
         os.chdir(old_directory)
-        return candidate
+        return candidate, time_spent
