@@ -16,6 +16,10 @@ class build_ext(_build_ext, object):
 
 setup(
     name='pypopmusic',
+    author='Tommaso Vitali',
+    author_email='tommivitali@gmail.com',
+    url='https://github.com/tommivitali/pypopmusic',
+    description='Python wrapper around the POPMusic TSP solver',
     install_requires=[
         'numpy',
     ],
