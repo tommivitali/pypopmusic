@@ -28,7 +28,7 @@ _OBJ = Activate.o AddCandidate.o AddExtraCandidates.o                  \
        GeoConversion.o GetTime.o GreedyTour.o Hashing.o Heap.o         \
        IsBackboneCandidate.o IsCandidate.o IsCommonEdge.o              \
        IsPossibleCandidate.o KSwapKick.o LinKernighan.o LKHmain.o      \
-       Make2OptMove.o Make3OptMove.o Make4OptMove.o Make5OptMove.o     \
+       LKH_POPMUSIC.o Make2OptMove.o Make3OptMove.o Make4OptMove.o Make5OptMove.o     \
        MakeKOptMove.o MergeTourWithBestTour.o MergeWithTourIPT.o       \
        Minimum1TreeCost.o MinimumSpanningTree.o NormalizeNodeList.o    \
        NormalizeSegmentList.o OrderCandidateSet.o PatchCycles.o        \

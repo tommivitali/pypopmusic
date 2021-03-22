@@ -466,7 +466,7 @@ void ReadParameters()
         if (!(ParameterFile = fopen(ParameterFileName, "r")))
             eprintf("Cannot open PARAMETER_FILE: \"%s\"",
                     ParameterFileName);
-        printff("PARAMETER_FILE = %s\n", ParameterFileName);
+        //printff("PARAMETER_FILE = %s\n", ParameterFileName);
     } else {
         while (1) {
             printff("PARAMETER_FILE = ");
