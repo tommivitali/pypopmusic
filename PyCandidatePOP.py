@@ -56,7 +56,8 @@ class PyCandidatePOP:
             file.write(f"EOF\n")
 
     def __call__(self, positions):
-        if not os.path.isfile(self.so_file):
+        current_script_dir = os.path.dirname(os.path.realpath(__file__))
+        if not os.path.isfile(f"{current_script_dir}/{self.so_file}"):
             print("Library not found. Have you 'make' the LKH?")
             return None
 
@@ -70,7 +71,7 @@ class PyCandidatePOP:
             self.write_parameter_file(number_cities)
             self.write_problem_file(positions)
 
-            LKH_library = CDLL(f"{old_directory}/{self.so_file}")
+            LKH_library = CDLL(f"{current_script_dir}/{self.so_file}")
             LKH_library.LKH_POPMUSIC.restype = c_double
             time_spent = LKH_library.LKH_POPMUSIC(f"{self.parameterFileName}".encode())
 
