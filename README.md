@@ -30,7 +30,7 @@ What can I do with it?
 The main entry point of the PyPOPMusic library is the `PyCandidatePOP` class. Here we create a random set of points, and use it to create all the candidate lists.
 ```python
     >>> import numpy as np
-    >>> from PyCandidatePOP import PyCandidatePOP
+    >>> from pypopmusic import PyCandidatePOP
     >>> n_cities = np.random.randint(100, 300)
     >>> pos = np.random.uniform(-0.5, 0.5, size=n_cities * 2).reshape((n_cities, 2))
     >>> instance_popm = PyCandidatePOP()
